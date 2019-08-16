@@ -1,0 +1,12 @@
+.media-body .text-dark:hover{
+    text-decoration: underline !important;
+}
+.border-danger{
+    border-color:#474278 !important;
+}
+textarea{
+    height: 7rem;
+}
+.border_randius{
+    border-radius: 0.25rem !important;
+}

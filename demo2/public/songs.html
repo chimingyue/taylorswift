@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html id="songs">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 设置视口-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <!-- 导入css-->
+    <link rel="stylesheet" href="boot/css/bootstrap.css"/>
+    <!-- 导入js,有顺序要求-->
+    <link rel="stylesheet" href="style/songs.css"/>
+    <link rel="stylesheet" href="style/common.css"/>
+</head>
+<body>
+<div class="container" id="song">
+    <!-- 导航栏-->
+    <div class="row m-0 my_nav my-5">
+        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+            <div class="">
+                <a class="navbar-brand mr-0 p-0" href="index.html">
+                    <img class="my_logo w-100" src="img/header/logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 p-0 py-lg-2">
+            <ul class="row m-0 list-unstyled">
+                <li class="col-sm-3 p-0"><a href="index.html" >HOME</a></li>
+                <li class="col-sm-3 p-0"><a href="songs.html" >SONGS</a></li>
+                <li class="col-sm-3 p-0"><a href="product.html" >PRODUCTS</a></li>
+                <li class="col-sm-3 p-0"><a href="moments.html" >MOMENTS</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-3 p-sm-0 p-md-0">
+            <ul class="breadcrumb p-0 bg-transparent mb-0 mt-lg-3">
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">Register</a></li>
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- -->
+    <div class="row m-0 mb-5" >
+        <!-- 左侧热门歌曲-->
+        <div class="col-lg-9 col-sm-12 p-0 pr-lg-2">
+            <div class="row m-0 position-relative">
+                <div class="col-sm-12 p-0">
+                    <span class="h4">Taylor Swift</span>
+                    <span class="my_font text-muted pl-3">泰勒·斯威夫特</span>
+                    <img class="w-100 mt-2" src="img/songs/song_hero.jpg" alt=""/>
+                    <a href="#" class="btn btn-info p-0 my_font px-2 py-1 my-2"><img class="mr-1" src="img/button/listen.png" alt=""/>播放全部</a>
+                    <a href="#" class="btn btn-info p-0 my_font px-2 py-1 my-2 my_position" title="添加到播放列表">+</a>
+                    <a href="#" class="btn btn-light p-0 my_font px-2 py-1 my-2 border-secondary"><img class="mr-1" src="img/button/icon.png" alt=""/>收藏</a>
+                </div>
+                <!-- 下拉菜单-->
+                <div class="my_dropdown position-absolute">
+                    <a href="javascript:;"  class="text-dark btn btn-light  border border-secondary my_font">热门歌曲
+                        <img src="img/songs/icondown.png" alt=""/>
+                    </a>
+                    <ul class="my_dropdown_menu list-unstyled my_font m-0 text-center bg-white" style="height:0px;">
+                        <li class="mb-1"><a href="javascript:;" class="text-muted">热门单曲</a></li>
+                        <li class="mb-1"><a href="javascript:;" class="text-muted">热门收藏</a></li>
+                        <li class="mb-1"><a href="javascript:;" class="text-muted">热门分享</a></li>
+                        <li class="mb-1"><a href="javascript:;" class="text-muted">上榜歌曲</a></li>
+                        <li class=""><a href="javascript:;" class="text-muted">获奖歌曲</a></li>
+                    </ul>
+                </div>
+                <!-- 循环生成歌曲列表-->
+                <div class="col-sm-12 p-0 py-1" >
+                    <audio :src="currentSrc" autoplay="" controls="" @ended="nextsong()"> </audio>
+                    <div v-for="(item,i) of singer_list" :key="i">
+                        <div class="row m-0 text-dark">
+                            <div class="col-sm-1 p-0 text-center">
+                                 <span class="" v-text="i+1"></span>
+                            </div>
+                            <div class="col-sm-1 p-0">
+                                <span @click="play(i)">
+                                    <img src="img/button/listen.png" alt=""/>
+                                </span>
+                            </div>
+                            <div class="col-sm-6 p-0 text-truncate">
+                                <span class="song_name"><a :title="item.album_song_name" class="text-dark" href="#" v-text="item.album_song_name"></a></span>
+                            </div>
+                            <div class="col-sm-2 p-0">
+                                <span v-text="item.album_song_time"></span>
+                            </div>
+                            <div class="col-sm-2 p-0">
+                                <p class="text-truncate m-0" v-text="item.album_song_singer"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 循环生成右侧相关歌手-->
+        <div class="col-lg-3 d-lg-block col-sm-12 p-0 pl-lg-2">
+            <div class="row m-0">
+                <p class="col-sm-12 border-bottom border-secondary font-weight-bold p-0">RELATED</p>
+                <div class="col-sm-2 col-lg-4 p-0" v-for="(item,i) of related_singer_list" :key="i">
+                    <div class="mx-1">
+                        <a href="#"><img class="w-100" :src="item.related_singers_img" alt=""/></a>
+                        <p class="text-truncate text-center"><a href="javascript:;" class="text-dark my_font">{{item.related_singers_name}}</a></p>
+                    </div>
+                </div>
+                <!-- 右侧轮播-->
+                <div class="row m-0">
+                    <p class="col-sm-12 border-bottom border-secondary font-weight-bold p-0">ALBUMS</p>
+                    <div class="col-sm-2 col-lg-4 p-0">
+                        <div id="main">
+                            <div id="banner">
+                                <div id="btn-left"></div>
+                                <ul id="ul-imgs" class="mytransition" style="width:1325px;margin-left: 0">
+                                    <li><a href="javascript:;"><img src="img/songs/carousel2.jpg"/></a></li>
+                                    <li><a href="javascript:;"><img src="img/songs/carousel4.jpg"/></a></li>
+                                    <li><a href="javascript:;"><img src="img/songs/carousel5.jpg"/></a></li>
+                                    <li><a href="javascript:;"><img src="img/songs/carousel6.jpg"/></a></li>
+                                    <li><a href="javascript:;"><img src="img/songs/carousel2.jpg"/></a></li>
+                                </ul>
+                                <ul id="ul-idxs">
+                                    <li class="active"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <div id="btn-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <div class="row m-0 pt-3 pl-lg-5 myfooter">
+        <div class="col-lg-7 col-sm-12 p-0 ">
+            <ul class=" d-flex justify-content-between list-unstyled">
+                <li class="w-100"><a href="#" class="h6">Teams of Use</a></li>
+                <li class="w-100"><a href="#" class="h6">Privacy Policy</a></li>
+                <li class="w-100"><a href="#" class="h6">Customer Support</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-1 offset-lg-2 col-sm-2 p-0">
+            <ul class="d-flex justify-content-between list-unstyled">
+                <li><img src="img/button/qq.png" alt=""/></li>
+                <li><img src="img/button/wechat.png" alt=""/></li>
+                <li><img src="img/button/sina.png" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-0 mb-5">
+        <p class="text-center my_font font-weight-bold m-0">© 中国粉丝版权所有</p>
+    </div>
+    <!-- 播放区域-->
+    <!-- <div class="music_play">
+        <audio src="../public/song/Taylor Swift - Delicate.mp3" controls></audio>
+    </div> -->
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/songs.js"></script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html id="detail">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 设置视口-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <!-- 导入css-->
+    <link rel="stylesheet" href="boot/css/bootstrap.css"/>
+    <!-- 导入js,有顺序要求-->
+    <link rel="stylesheet" href="style/common.css"/>
+    <link rel="stylesheet" href="style/product_detail.css"/>
+</head>
+<body>
+<div class="container" id="product_detail">
+    <!-- 导航栏-->
+    <div class="row m-0 my_nav my-5">
+        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+            <div class="">
+                <a class="navbar-brand mr-0 p-0" href="index.html">
+                    <img class="my_logo w-100" src="img/header/logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 p-0 py-lg-2">
+            <ul class="row m-0 list-unstyled">
+                <li class="col-sm-3 p-0"><a href="index.html" >HOME</a></li>
+                <li class="col-sm-3 p-0"><a href="songs.html" >SONGS</a></li>
+                <li class="col-sm-3 p-0"><a href="product.html" >PRODUCTS</a></li>
+                <li class="col-sm-3 p-0"><a href="moments.html" >MOMENTS</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-3 p-sm-0 p-md-0">
+            <ul class="breadcrumb p-0 bg-transparent mb-0 mt-lg-3">
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted ">Register</a></li>
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted ">login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- -->
+    <div class="my_background mb-5">
+        <img class=" w-100 myimg" src="img/product/updated-core-collection_desktop_5.12.19.gif" alt=""/>
+    </div>
+    <div class="row m-0"  v-for="(item,i) of product_detail_list" :key="i">
+        <div class="col-sm-5  p-0 ">
+            <div class="mr-5" >
+                <img class="w-100 myimg" :src="item.product_img" alt=""/>
+            </div>
+        </div>
+        <div class="col-sm-6 p-0 ">
+            <div class="ml-5">
+                <p class="h4 font-weight-normal py-1" v-text="item.product_name">CELADON LONG SLEEVECROP TEE </p>
+                <p class="h5 py-2" v-text="item.product_price"></p>
+                <p>Size:</p>
+                <ul class="list-unstyled d-flex">
+                    <li><a href="#" class="btn p-2 mr-3 my_border">S</a></li>
+                    <li><a href="#" class="btn p-2 mr-3 my_border">M</a></li>
+                    <li><a href="#" class="btn p-2 mr-3 my_border">L</a></li>
+                    <li><a href="#" class="btn p-2 my_border">XL</a></li>
+                </ul>
+                <p>Quantity:</p>
+                <div id="details_a">
+                    <a  href="javascript:;" class="btn my_border mr-1">-</a>
+                    <input class="text-center btn my_border my_input mr-1" type="text" value="1"/>
+                    <a  href="javascript:;" class="btn my_border ">+</a>
+                </div>
+                <a href="javascript:;" class="px-5 d-block py-2 mt-2 my_border btn text-center font-weight-bold my_color">ADD TO CART</a>
+                <p class="my-3 my_font" v-text="item.product_intro"></p>
+                <p class="my-3 my_font" v-text="item.product_material"></p>
+                <p class="my-3 my_font" v-text="item.surprise"></p>
+                <p class="my-3 my_font" v-text="item.note"></p>
+                <p class="my_font m-0" v-text="item.right_owner"></p>
+                <p class="my_font m-0" v-text="item.photo_by"></p>
+                <p class="my_font m-0" v-text="item.manager"></p>
+                <p class="my-3 my_font" v-text="item.others"></p>
+                <p class="my-3 my_font" v-text="item.others"></p>
+                <p class="my-3 my_font" v-text="item.others"></p>
+                <p class="my-3 my_font" v-text="item.others"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="row m-0 pt-3 pl-lg-5 myfooter">
+        <div class="col-lg-7 col-sm-12 p-0 ">
+            <ul class=" d-flex justify-content-between list-unstyled">
+                <li class="w-100"><a href="#" class="h6">Teams of Use</a></li>
+                <li class="w-100"><a href="#" class="h6">Privacy Policy</a></li>
+                <li class="w-100"><a href="#" class="h6">Customer Support</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-1 offset-lg-2 col-sm-2 p-0">
+            <ul class="d-flex justify-content-between list-unstyled">
+                <li><img src="img/button/qq.png" alt=""/></li>
+                <li><img src="img/button/wechat.png" alt=""/></li>
+                <li><img src="img/button/sina.png" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-0 mb-5">
+        <p class="text-center my_font font-weight-bold m-0">© 中国粉丝版权所有</p>
+    </div>
+
+</div>
+<!--购物车-->
+<div class="cart bg-white position-fixed">
+    <h4 class="py-3 pl-3">CART</h4>
+    <div class="d-flex justify-content-between pt-2">
+        <div>
+            <img src="img/product/cart_small.png" alt=""/>
+        </div>
+        <div class="pl-3 pb-2">
+            <a href="product.html" class="h6 my_fontcolor d-block">CELADON LONG SLEEVECROP TEE WITH FLORAL PHOTO DESIGN</a>
+            <span class="text-primary font-weight-bold d-block mb-2">$25</span>
+            <a href="javascript:;" class="btn my_border ">-</a>
+            <input class="text-center btn my_border w-25" type="text" value="1"/>
+            <a href="javascript:;" class="btn my_border ">+</a>
+        </div>
+    </div>
+    <div class="py-3 px-3">
+        <p class="px-5 d-block py-2 mt-2 my_border btn text-center font-weight-bold my_color">ACCOUNT <span class=" text-primary" id="total">$25</span> </p>
+    </div>
+</div>
+<!--结算-->
+<div class="account bg-white position-fixed" style="display: none">
+    <p class="py-2 px-3 countheader">
+        <span class="my_font font-weight-bold">正在结算</span>
+        <a href="javascript:;" class="float-right h4 text-muted">×</a>
+    </p>
+    <div class="my_text my_font">
+        <p class="m-0 mb-2 font-weight-bold">Name：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text"/>
+        <p class="m-0 my-2 font-weight-bold">PhoneNumber：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text"/>
+        <p class="m-0 my-2 font-weight-bold">Email：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text"/>
+        <p class="m-0 my-2 font-weight-bold">Address：</p>
+        <input class="my_font py-2 pl-1 w-100 my-2" type="text" placeholder="请输入详细的街道地址、门牌号等信息"/>
+
+        <p class="m-0 my-2 font-weight-bold">Products：</p>
+        <div class="d-flex justify-content-between pt-2">
+            <div>
+                <img src="img/product/cart_small.png" alt=""/>
+            </div>
+            <div class="pl-3 pb-2">
+                <span class="h6 d-block">CELADON LONG SLEEVECROP TEE WITH FLORAL PHOTO DESIGN</span>
+                <span class="text-primary font-weight-bold d-block mb-2">$100</span>
+            </div>
+        </div>
+        <p class="m-0 my-2 font-weight-bold">Message：</p>
+        <input class="my_font py-2 pl-1 w-100 my-2" type="text" placeholder="留言"/>
+        <button class="btn countheader w-100 my-3">$100 提交订单</button>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/product_detail.js"></script>
+</html>

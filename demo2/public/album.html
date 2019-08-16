@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html id="album">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 设置视口-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <!-- 导入css-->
+    <link rel="stylesheet" href="boot/css/bootstrap.css"/>
+    <!-- 导入js,有顺序要求-->
+    <link rel="stylesheet" href="style/common.css"/>
+    <link rel="stylesheet" href="style/album.css"/>
+</head>
+<body>
+<div class="container">
+    <!-- 导航栏-->
+    <div class="row m-0 my_nav my-5">
+        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+            <div class="">
+                <a class="navbar-brand mr-0 p-0" href="index.html">
+                    <img class="my_logo w-100" src="img/header/logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 p-0 py-lg-2">
+            <ul class="row m-0 list-unstyled">
+                <li class="col-sm-3 p-0"><a href="index.html" >HOME</a></li>
+                <li class="col-sm-3 p-0"><a href="songs.html" >SONGS</a></li>
+                <li class="col-sm-3 p-0"><a href="product.html" >PRODUCTS</a></li>
+                <li class="col-sm-3 p-0"><a href="moments.html" >MOMENTS</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-3 p-sm-0 p-md-0">
+            <ul class="breadcrumb p-0 bg-transparent mb-0 mt-lg-3">
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">Register</a></li>
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- -->
+    <div class="row m-0" >
+        <!-- 左侧歌曲-->
+        <div class="col-lg-9 col-sm-12 p-0"  id="allalbum">
+            <div v-for="(item,i) of album_info_list">
+                <div class="row m-0 mb-4">
+                    <div class="col-sm-3 p-0">
+                        <div class="">
+                            <img class="w-100" :src="item.cover" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 p-0">
+                        <div class="ml-lg-5 ml-sm-3" >
+                            <div class="mb-2">
+                                <span class="my_font text-muted">专辑名：</span>
+                                <span class="h3 my_font_color" v-text="item.a_name"></span>
+                            </div>
+                            <p class="mb-lg-3 mb-sm-2 my_font text-muted">歌手：<span class="text-info h6" v-text="item.singer"></span></p>
+                            <p class="mb-lg-3 mb-sm-2 my_font text-muted" v-text="'发行时间：'+item.time_out"></p>
+                            <p class="mb-lg-3 mb-sm-2 my_font text-muted" v-text="'发行公司：'+item.corporation"></p>
+                            <a href="#" class="btn btn-primary text-white p-md-2 my_font p-sm-0"><img src="img/button/listen.png" alt=""/>播放</a>
+                            <a href="#" class="btn btn-primary my_font p-md-2 py-sm-0" title="添加到播放列表">+</a>
+                            <a href="#" class="btn btn-light border border-secondary p-md-2 p-sm-0 text-dark my_font"><img src="img/button/icon.png" alt=""/>收藏</a>
+                            <a href="#" class="btn btn-light border border-secondary p-md-2 p-sm-0 text-dark my_font"><img src="img/button/share.png" alt=""/>(37869)</a>
+                            <a href="#" class="btn btn-light border border-secondary p-md-2 p-sm-0 text-dark my_font"><img src="img/button/download.png" alt=""/>下载</a>
+                            <a href="#" class="btn btn-light border border-secondary p-md-2 p-sm-0 text-dark my_font"><img src="img/button/conment.png" alt=""/>(37931)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5" >
+                    <p class="h6 font-weight-bold my_font_color">专辑介绍:</p>
+                    <p class="m-0 my_font" v-text="item.album_intro"></p>
+                    <div class="text-right">
+                        <a href="#" data-target="#demo" data-toggle="collapse" class="my_font text-primary">更多</a>
+                    </div>
+                    <div id="demo" class="collapse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, cumque dicta error facere illo in laboriosam magni maxime mollitia necessitatibus quibusdam suscipit tenetur voluptatum! Cumque cupiditate eius excepturi fugiat, laudantium natus nisi numquam quaerat, quam quisquam quos sequi. Accusamus accusantium ad architecto aut commodi consequuntur distinctio dolores earum et eum expedita illum impedit inventore ipsa itaque iure laudantium libero nam, nemo, neque nobis nulla pariatur quam quasi quibusdam recusandae repudiandae saepe sed sint tempora! Assumenda corporis explicabo facilis in, iure iusto obcaecati soluta tempore totam velit. Aspernatur hic ipsa maiores molestiae nesciunt, nulla odit officiis repellendus sequi similique sint veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut ducimus est, nulla placeat possimus quisquam similique sint sunt temporibus veritatis.</div>
+                    </div>
+                <div class="mb-5" >
+                    <p class="h5 my_font_color">歌曲列表<span class="ml-5 h6">15首歌</span></p>
+                    <audio :src="currentSrc" autoplay="" controls="" @ended="nextsong()"> </audio>
+                    <div class="row m-0 text-dark" v-for="(item,i) of album_song_list" :key="i">
+                        <div class="col-sm-1 p-0">
+                            <span v-text="i+1"></span>
+                        </div>
+                        <div class="col-sm-1 p-0" >
+                            <span @click="play(i)">
+                                <img src="img/button/listen.png" alt=""/>
+                            </span>
+                        </div>
+                        <div class="col-sm-6 p-0 text-truncate">
+                            <span><a :title="item.album_song_name" class="text-dark" href="#" v-text="item.album_song_name"></a></span>
+                        </div>
+                        <div class="col-sm-2 p-0">
+                            <span v-text="item.album_song_time"></span>
+                        </div>
+                        <div class="col-sm-2 p-0">
+                            <p class="text-truncate m-0" v-text="item.album_song_singer"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 评论-->
+            <div class="mb-5">
+                <p class="border-bottom border-danger"> <span class="h5 mr-3 my_font_color">评论</span> <span class="my_font text-muted">共37939条评论</span></p>
+                <textarea class="border border-secondary w-100 text-muted my_font" v-model="commend_text">When we have the first kiss,we never imagine that someday it could turn into the last kiss...</textarea>
+                <div class="text-right mb-4">
+                    <span class="my_font text-muted">140</span>
+                    <a href="javascript:;" class="mx-1"><img src="img/button/emotion.png" alt=""/></a>
+                    <a href="javascript:;" class="btn btn-primary py-0 my_font" @click="commend">评论</a>
+                </div>
+                <div>
+                    <p class="text-muted my_font">精彩评论</p>
+                    <div class="row m-0" v-for="(item,i) of song_commend_list" :key="i">
+                        <div class="col-sm-1 p-0 pt-2 ">
+                            <img :src="item.commend_avatar" alt=""/>
+                        </div>
+                        <div class="col-sm-11 p-0">
+                            <div class="ml-sm-2 ml-md-3 pt-md-2">
+                                <p class="m-0 my_font mb-3" >
+                                    <span class="text-primary" >
+                                        {{item.commend_user}}
+                                        <img src="img/button/vip.png" class="ml-1" alt=""/>
+                                    </span>
+                                    <span>：</span>
+                                    {{item.commend}}
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="my_font text-muted p-0 m-0">{{new Date(item.commend_time).toLocaleString()}}</span>
+                                    <div class="mr-1">
+                                        <a href="javascript:;" class="pr-1 text-muted my_font count"><img class="mr-1" src="img/button/support.png" @click="commend_like(item,i)" ref="support">{{item.commend_like}}</a>
+                                        <a href="#" class="text-muted my_font">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 右侧推荐-->
+        <div class="col-lg-3 col-sm-12 p-0 px-lg-3">
+            <p class="my_font my_font_color font-weight-bold border-bottom border-danger mb-3">ta的其他专辑</p>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover1.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <div class="ml-2">
+                        <p class="text-truncate w-100 p-0"><a href="#" class="text-dark">ME! (feat. Brendon Urie of Panic! At The Disco)</a></p>
+                        <p class="my_font text-muted m-0">2019-04-26</p>
+                    </div>
+                </div>
+            </div>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover3.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <p class="text-truncate w-100"><a href="#" class="text-dark">1989</a></p>
+                    <p class="my_font text-muted m-0">2014-10-27</p>
+                </div>
+            </div>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover4.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <p class="text-truncate w-100"><a href="#" class="text-dark">Red</a></p>
+                    <p class="my_font text-muted m-0">2012-10-22</p>
+                </div>
+            </div>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover5.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <p class="text-truncate w-100"><a href="#" class="text-dark">Speak Now</a></p>
+                    <p class="my_font text-muted m-0">2010-11-22</p>
+                </div>
+            </div>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover6.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <p class="text-truncate w-100"><a href="#" class="text-dark">Fearless</a></p>
+                    <p class="my_font text-muted m-0">2008-11-11</p>
+                </div>
+            </div>
+            <div class="media row m-0 mb-2">
+                <div class="col-sm-3 p-0">
+                    <div class="mr-2">
+                        <a href="#"><img class="w-100" src="img/album/img_cover7.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-9 p-0 media-body">
+                    <p class="text-truncate w-100"><a href="#" class="text-dark">Taylor Swift</a></p>
+                    <p class="my_font text-muted m-0">2006-10-24</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="row m-0 pt-3 pl-lg-5 myfooter">
+        <div class="col-lg-7 col-sm-12 p-0 ">
+            <ul class=" d-flex justify-content-between list-unstyled">
+                <li class="w-100"><a href="#" class="h6">Teams of Use</a></li>
+                <li class="w-100"><a href="#" class="h6">Privacy Policy</a></li>
+                <li class="w-100"><a href="#" class="h6">Customer Support</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-1 offset-lg-2 col-sm-2 p-0">
+            <ul class="d-flex justify-content-between list-unstyled">
+                <li><img src="img/button/qq.png" alt=""/></li>
+                <li><img src="img/button/wechat.png" alt=""/></li>
+                <li><img src="img/button/sina.png" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-0 mb-5">
+        <p class="text-center my_font font-weight-bold m-0">© 中国粉丝版权所有</p>
+    </div>
+
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/album.js"></script>
+</html>

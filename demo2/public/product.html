@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html id="product">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 设置视口-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="stylesheet" href="boot/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/product.css"/>
+    <link rel="stylesheet" href="style/common.css"/>
+</head>
+<body>
+<div class="container">
+    <!-- 导航栏-->
+    <div class="row m-0 my_nav my-5">
+        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+            <div class="">
+                <a class="navbar-brand mr-0 p-0" href="index.html">
+                    <img class="my_logo w-100" src="img/header/logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 p-0 py-lg-2">
+            <ul class="row m-0 list-unstyled">
+                <li class="col-sm-3 p-0"><a href="index.html" >HOME</a></li>
+                <li class="col-sm-3 p-0"><a href="songs.html" >SONGS</a></li>
+                <li class="col-sm-3 p-0"><a href="product.html" >PRODUCTS</a></li>
+                <li class="col-sm-3 p-0"><a href="moments.html" >MOMENTS</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-3 p-sm-0 p-md-0">
+            <ul class="breadcrumb p-0 bg-transparent mb-0 mt-lg-3">
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">Register</a></li>
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- -->
+
+    <div class="row  m-0 mt-5">
+        <div class="col-sm-12 p-0 w-100 text-center name_font font-italic">TAYLOR SWIFT</div>
+    </div>
+    <div class="my_background py-5">
+        <img class=" w-100" src="img/product/updated-core-collection_desktop_5.12.19.gif" alt=""/>
+    </div>
+    <!-- 周边商品-->
+    <div class="row m-0" id="allproduct">
+        <h5 class="text-center col-sm-12 p-0 my-3 font-weight-bold"><span class="mr-sm-4">CORE</span>COLLECTION</h5>
+        <div class="col-lg-4 col-sm-6 text-center p-0" v-for="(item,i) of product_core_list" :key="i">
+            <div class="mx-2 my_shadow">
+                <a :href="item.product_href"><img class="w-100 p-3" :src="item.product_img" alt=""/></a>
+                <a :href="item.product_href" class="h6" v-text="item.product_name"></a>
+                <p v-text="item.product_price"></p>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播商品-->
+    <div class="position-relative">
+        <p class="position-absolute d-inline h4 btn-left text-white"><span class="text-center position-relative">&lt;</span></p>
+        <p class="position-absolute d-inline h4 btn-right text-white"><span class="text-center position-relative">&gt;</span></p>
+    </div>
+    <h5 class="text-center  my-3 font-weight-bold">ONLY ONE OF ME! & LOVER COLLECTION</h5>
+    <div class="carousel_product mb-5">
+        <ul class="list-unstyled py-3" style="margin: 0px" id="myul">
+            <li class=" text-center  float-left mx-3 first_carousel_product">
+                <div class=" my_shadow ">
+                    <a href="product_detail.html?pid=16"><img class="w-100" src="img/product/product1.png" alt=""/></a>
+                    <a href="product_detail.html?pid=16" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$45</p>
+                </div>
+            </li>
+            <li class=" text-center  float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=17"><img class="w-100" src="img/product/product2.png" alt=""/></a>
+                    <a href="product_detail.html?pid=17" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$35</p>
+                </div>
+            </li>
+            <li class=" text-center  float-left mx-3">
+                <div class=" my_shadow">
+                    <a href="product_detail.html?pid=18"><img class="w-100" src="img/product/product3.png" alt=""/></a>
+                    <a href="product_detail.html?pid=18" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$25</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=19"><img class="w-100" src="img/product/product4.png" alt=""/></a>
+                    <a href="product_detail.html?pid=19" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$20</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=20"><img class="w-100" src="img/product/product5.png" alt=""/></a>
+                    <a href="product_detail.html?pid=20" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$35</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=21"><img class="w-100" src="img/product/product6.png" alt=""/></a>
+                    <a href="product_detail.html?pid=21" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$35</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=22"><img class="w-100" src="img/product/product7.png" alt=""/></a>
+                    <a href="product_detail.html?pid=22" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$45</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=23"><img class="w-100" src="img/product/product8.png" alt=""/></a>
+                    <a href="product_detail.html?pid=23" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$40</p>
+                </div>
+            </li>
+            <li class=" text-center float-left mx-3">
+                <div class="my_shadow">
+                    <a href="product_detail.html?pid=24"><img class="w-100" src="img/product/product9.png" alt=""/></a>
+                    <a href="product_detail.html?pid=24" class="h6">BEIGE TOTE WITH FLORAL DESIGN</a>
+                    <p>$55</p>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!--footer-->
+    <div class="row m-0 pt-3 pl-lg-5 myfooter">
+        <div class="col-lg-7 col-sm-12 p-0 ">
+            <ul class=" d-flex justify-content-between list-unstyled">
+                <li class="w-100"><a href="#" class="h6">Teams of Use</a></li>
+                <li class="w-100"><a href="#" class="h6">Privacy Policy</a></li>
+                <li class="w-100"><a href="#" class="h6">Customer Support</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-1 offset-lg-2 col-sm-2 p-0">
+            <ul class="d-flex justify-content-between list-unstyled">
+                <li><img src="img/button/qq.png" alt=""/></li>
+                <li><img src="img/button/wechat.png" alt=""/></li>
+                <li><img src="img/button/sina.png" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-0 mb-5">
+        <p class="text-center my_font font-weight-bold m-0">© 中国粉丝版权所有</p>
+    </div>
+
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/product.js"></script>
+</html>

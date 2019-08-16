@@ -1,0 +1,101 @@
+.my_position{
+    position: relative;
+    left: -3px;
+}
+.col-sm-6 .text-dark:hover{
+    text-decoration: underline !important;
+}
+.my_dropdown{
+    width: 100px !important;
+    top: 413px;
+    left:705px;
+    z-index: 10;
+}
+.my_dropdown li:hover{
+    background-color: #aaaaaa;
+}
+.my_dropdown li>a:hover{
+    color: white !important;
+}
+.my_dropdown>ul{
+    width: 87px;
+    overflow: hidden;
+    box-shadow:5px 5px 6px #000;
+    transition: all .5s linear;
+}
+@media screen and (max-width:1199px ){
+    .my_dropdown{display: none;}
+}
+#main{
+    width:265px;
+    margin:0 auto;
+}
+#banner{
+    width:265px;
+    overflow:hidden;
+    position:relative;
+}
+#ul-imgs{
+    list-style:none;
+}
+#ul-imgs.transition{
+    transition:all .5s linear;
+}
+#ul-imgs>li{
+    width:265px;
+    float:left;
+}
+#ul-imgs img{
+    width:265px;
+    border-radius: 5px;
+}
+#ul-idxs{
+    width:100px;
+    margin:0 auto;
+    list-style:none;
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    margin-left:-50px;
+}
+#ul-idxs>li{
+    float:left;
+    width:10px;
+    height:10px;
+    background-color:#ffa;
+    border-radius:5px;
+    margin:0 5px;
+    cursor:pointer;
+}
+#ul-idxs>li.active{
+    background-color:#C7A3ED;
+}
+#btn-left,#btn-right{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:65px;
+    background-repeat:no-repeat;
+    background-position:center;
+    cursor:pointer;
+}
+#btn-left{
+    left:10px;
+    background-image:url(../img/songs/left_ar.png);
+}
+#btn-right{
+    right:12px;
+    background-image:url(../img/songs/right_ar.png);
+}
+.container{
+    position: relative;
+}
+.music_play{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+
+

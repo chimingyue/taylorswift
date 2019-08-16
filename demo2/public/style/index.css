@@ -1,0 +1,140 @@
+ .carousel-control-prev,.carousel-control-next{
+    width: 3.5%;
+    height:10%;
+    background: #aaa;
+    border-radius: 0.25rem;
+    top:45%;
+}
+.carousel-indicators li{
+    width:0.75rem;
+    height: 0.75rem;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+}
+.carousel-indicators li:hover{
+    cursor: pointer;
+    background-color: #C7A3ED;
+}
+.carousel-indicators li:active{
+    background-color: #C7A3ED;
+}
+h4{
+    color:#474278;
+}
+.font-italic>li{
+    font-family: 'Centaur' !important;
+}
+p{
+    /* font-family: 'Forte' !important; */
+}
+img{
+    border-radius: 0.5rem;
+}
+@keyframes  my_rotate{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(90deg);}
+    50%{transform:rotate(180deg);}
+    75%{transform:rotate(270deg);}
+    100%{transform:rotate(360deg);}
+}
+.my_rotate{
+    border-radius: 50%;
+    animation: my_rotate 30s linear infinite;
+}
+.my_rotate:hover{
+    animation-play-state:paused;
+}
+.latest{
+    background: url("../img/bg/header-video_desktop.jpg") no-repeat !important;
+    background-size: contain;
+}
+/*new single now*/
+@media screen and (min-width: 992px){
+    .position-relative{  top:100px;  left:100px;  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .position-relative{  top:50px;  left:50px;  }
+}
+@media screen and (max-width: 767px) {
+    .position-relative{  top:0px;  left:0px;  }
+}
+/*button*/
+.my_relative{
+    background-color: #f48483;
+    box-shadow: 5px 7px 0px #f15918;
+}
+@media screen and (min-width: 992px){
+    .my_relative{
+        font-size: 20px;
+        top:130px !important;
+        left:180px !important;
+        transition: all .3s linear;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .my_relative{
+        font-size: 18px;
+        top:80px !important;
+        left:67px !important;
+        /*�������Զ��嵽ԭʼλ����*/
+        transition: all .3s linear;
+    }
+}
+@media screen and (max-width: 767px) {
+    .my_relative{
+        font-size: 20px;
+        top:0px !important;
+        left:65px !important;
+        transition: all .3s linear;
+    }
+}
+@media screen and (min-width: 992px){
+    .my_relative:hover{
+        top:125px !important;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .my_relative:hover{
+        top:78px !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .my_relative:hover{
+        top:-2px !important;
+    }
+}
+.my_scale{
+    transition: all 1s linear;
+}
+.my_scale:hover{
+    transform: scale(1.05);
+}
+#regsite{
+    width: 540px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    margin-left:-270px;
+    margin-top:-250px ;
+    font-style: normal;
+    display: none;
+}
+
+.yanzhengma{
+    width: 200px;
+}
+#login{
+    width: 540px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    margin-left:-270px;
+    margin-top:-250px ;
+    display: none;
+    font-style: normal;
+}
+.my_text{
+    padding-top: 20px;
+}
+

@@ -1,0 +1,335 @@
+ <!DOCTYPE html>
+<html id="index">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 设置视口-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <!-- 导入css-->
+    <link rel="stylesheet" href="boot/css/bootstrap.css"/>
+    <!-- 导入js,有顺序要求-->
+    <link rel="stylesheet" href="style/common.css"/>
+    <link rel="stylesheet" href="style/index.css"/>  
+    <script src="js/yanzhengma.js"></script>
+</head>
+<body>
+<div class="container" id="allindex">
+    <!-- 导航栏-->
+    <div class="row m-0 my_nav my-5">
+        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+            <div class="">
+                <a class="navbar-brand mr-0 p-0" href="index.html">
+                    <img class="my_logo w-100" src="img/header/logo.png"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 p-0 py-lg-2">
+            <ul class="row m-0 list-unstyled">
+                <li class="col-sm-3 p-0"><a href="#" >HOME</a></li>
+                <li class="col-sm-3 p-0"><a href="songs.html" >SONGS</a></li>
+                <li class="col-sm-3 p-0"><a href="product.html" >PRODUCTS</a></li>
+                <li class="col-sm-3 p-0"><a href="moments.html" >MOMENTS</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-3 p-sm-0 p-md-0">
+            <ul class="breadcrumb p-0 bg-transparent mb-0 mt-lg-3">
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">Register</a></li>
+                <li class="breadcrumb-item pt-2"><a href="#" class="text-muted my_font ">login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 最新信息-->
+    <div class="latest row m-0 mb-3 py-md-4 py-sm-3">
+        <div class="col-md-6 col-sm-12 p-0 pl-sm-5 pl-md-0">
+            <img class="w-75 position-relative mb-sm-3" src="img/index/title-nsan.png" alt=""/>
+            <button class="text-white font-weight-bold btn py-lg-3 px-lg-3 position-relative my_relative">STREAM/DOWNLOAD</button>
+        </div>
+        <div class="col-md-6 col-sm-12 p-0 pl-sm-5 pt-sm-3 pl-md-0 pt-md-0 pt-sm-2">
+            <img class="w-75" src="img/index/SingleArt.jpg" alt=""/>
+        </div>
+    </div>
+    <!-- 轮播图-->
+    <div id="demo" class="carousel" data-ride="carousel">
+        <div class="carousel-inner" id="carousel">
+            <div class="carousel-item active" id="carousel1">
+                <!-- <a href="album.html" >
+                    <img src="img/banner/banner1.jpg" class="w-100"/>
+                </a> -->
+            </div>
+            <div class="carousel-item" id="carousel2">
+            </div>
+            <div class="carousel-item" id="carousel3">
+            </div>
+            <div class="carousel-item" id="carousel4">
+            </div>
+            <div class="carousel-item" id="carousel5">
+            </div>
+            <div class="carousel-item" id="carousel6">
+            </div>
+        </div>
+        <a href="#demo" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+        <a href="#demo" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1" ></li>
+            <li data-target="#demo" data-slide-to="2" ></li>
+            <li data-target="#demo" data-slide-to="3" ></li>
+            <li data-target="#demo" data-slide-to="4" ></li>
+            <li data-target="#demo" data-slide-to="5" ></li>
+        </ul>
+    </div>
+    <!-- 基本信息-->
+    <div>
+        <h4 class=" border-bottom mt-5 mb-3 pb-2 font-weight-bold">基本信息 / INFORMATION</h4>
+        <div class="row bg-white m-0 p-1" v-for="(item,i) of singer_list" :key="i">
+            <div class="col-lg-7  col-sm-12 p-0">
+                <div class="mr-2 mr-sm-0">
+                    <img :src="item.d_img" alt="" class="w-100 p-2"/>
+                </div>
+            </div>
+            <div class="col-lg-5  col-sm-12 p-0">
+                <ul class="list-unstyled pl-lg-3 pt-lg-3 pl-sm-2 pt-sm-2 font-italic ">
+                    <li class="h3 font-weight-bold" v-text="'Name：'+item.name"></li>
+                    <li class="h5 font-weight-bold" v-text="'Country：'+item.country"></li>
+                    <li class="h5 font-weight-bold" v-text="'Style：'+item.style"></li>
+                    <li class="h5 font-weight-bold" v-text="'Albums：'+item.count"></li>
+                    <li class="h5 font-weight-bold" v-text="'Awards：'+item.awards"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 推荐专辑-->
+    <div>
+        <h4 class="border-bottom mt-5 mb-3 pb-2 font-weight-bold">推荐专辑 / RECOMMEND</h4>
+        <div class="row  m-0">
+            <div class="col-md-3 col-sm-6 p-0" v-for="(item,i) of intro_album_list" :key="i" >
+                <div class="d-flex justify-content-center p-2">
+                    <a :href="item.album_href"><img :src="item.cover" alt="" class="my_rotate w-100"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 全部专辑-->
+    <div>
+        <h4 class="border-bottom mt-5 mb-3 pb-2 font-weight-bold">全部专辑 / ALBUM</h4>
+        <div class="row  m-0">
+            <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-2  mt-sm-1 p-0" v-for="(item,i) of album_list" :key="i">
+                <div class="d-flex justify-content-center">
+                    <a :href="item.album_href"><img class="w-100 my_scale" :src="item.cover" alt=""/></a>
+                </div>
+                <p class="h5 text-center pt-1"><a href="#" class="text-dark" v-text="item.a_name"></a></p>
+            </div>
+        </div>
+    </div>
+    <!-- 发行单曲-->
+    <div>
+        <h4 class="border-bottom mt-5 mb-3 pb-2 font-weight-bold">发行单曲 / SINGLE</h4>
+        <div class="row m-0">
+            <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-2  mt-sm-1 p-0" v-for="(item,i) of single_list" :key="i">
+                    <div class="d-flex justify-content-center">
+                        <a :href="item.album_href"><img class="w-100 my_scale" :src="item.cover" alt=""/></a>
+                    </div>
+                    <p class="h5 text-center pt-1"><a href="#" class="text-dark" v-text="item.a_name"></a></p>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <div class="row m-0 pt-3 pl-lg-5 myfooter">
+        <div class="col-lg-7 col-sm-12 p-0 ">
+            <ul class=" d-flex justify-content-between list-unstyled">
+                <li class="w-100"><a href="#" class="h6">Teams of Use</a></li>
+                <li class="w-100"><a href="#" class="h6">Privacy Policy</a></li>
+                <li class="w-100"><a href="#" class="h6">Customer Support</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-1 offset-lg-2 col-sm-2 p-0">
+            <ul class="d-flex justify-content-between list-unstyled">
+                <li><img src="img/button/qq.png" alt=""/></li>
+                <li><img src="img/button/wechat.png" alt=""/></li>
+                <li><img src="img/button/sina.png" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-0 mb-5">
+        <p class="text-center my_font font-weight-bold m-0">© 中国粉丝版权所有</p>
+    </div>
+
+</div>
+<!-- 注册-->
+<div id="regsite" class="position-fixed bg-white">
+    <p class="py-2 px-3 bg-dark">
+        <span class="my_font font-weight-bold text-white">注册新账号</span>
+        <a href="javascript:;" class="float-right h4 text-muted">×</a>
+    </p>
+    <div class="my_text my_font">
+        <p class="m-0 mb-2">登录名：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text"  placeholder="创建一个登录名,包含数字、字母、下划线3-10位" id="uname1" onblur="username()"/>
+        <p class="m-0 my-2">密码：</p>
+        <input class="my_font py-2 pl-1 w-100" type="password"  id="upwd1" placeholder="设置登录密码，不少于6位"/>
+        <p class="m-0 my-2">手机号：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text" placeholder="请输入您的手机号" id="userPhone"/>
+        <p class="m-0 my-2">验证码：</p>
+        <p class="d-flex m-0">
+            <input class="my_font py-2 pl-1 yanzhengma" type="text" /> 
+            <button class="btn btn-dark" id="second">发送验证码</button>
+        </p>
+        <button class="btn btn-danger w-100 my-3 " id="register" onclick="registe()">注册</button>
+        <a href="javascript:;" class="my_font">已有账号,直接登录>></a>
+    </div>
+</div>
+<!--登录-->
+<div id="login" class="position-fixed bg-white">
+    <p class="py-2 px-3 bg-dark">
+        <span class="my_font font-weight-bold text-white">账号登录</span>
+        <a href="javascript:;" class="float-right h4 text-muted">×</a>
+    </p>
+    <div class="my_text my_font">
+        <p class="m-0 mb-2">登录名：</p>
+        <input class="my_font py-2 pl-1 w-100" type="text"   id="uname2" placeholder="请输入账号"/>
+        <p class="m-0 my-2">密码：</p>
+        <input class="my_font py-2 pl-1 w-100" type="password"  id="upwd2" placeholder="请输入密码"/>
+        <!-- 随机验证码-->
+        <p class="m-0 my-2">验证码：</p>
+        <div class=" d-flex align-items-center">
+            <input type="text" class="my_font p-2 mr-2 id="code" />
+            <div id="v_container" class="d-inline-block mx-2 "></div>
+        </div>
+        <button class="btn btn-danger w-100 my-3" id="my_button" onclick="login()">登录</button>
+        <a href="javascript:;" class="my_font">没有账号，去注册>></a>
+    </div>
+</div>
+</body>
+<script>
+    
+    // 注册
+    function username(){
+        var uname=$.trim( $("#uname1").val() );
+        $.ajax({
+                url:"http://localhost:3000/username",
+                type:"get",
+                data:"uname="+uname,
+                dataType:"json"
+            }).then(function(result){
+                if(result.code==-1){
+                    alert("用户名已被占用");
+                }
+            })
+    }
+    function registe(){
+        var uname=$.trim( $("#uname1").val() );
+        var upwd=$.trim( $("#upwd1").val() );
+        var phone=$.trim( $("#userPhone").val() );
+        if(!uname){
+            alert("用户名不能为空");
+            return;
+        }else if(!upwd){
+            alert("密码不能为空");
+            return;
+        }else if(!phone){
+            alert("手机号不能为空");
+            return;
+        }else{
+            //发送请求
+            $.ajax({
+                url:"http://localhost:3000/register",
+                type:"post",
+                data:"uname="+uname+"&upwd="+upwd+"&phone="+phone,
+                dataType:"json"
+            }).then(function(result){
+                if(result.code==1){
+                    alert("注册成功,去登录");
+                    var rdiv=$(".position-fixed#regsite").hide();
+                    var ldiv=$(".position-fixed#login").show();
+                }
+            })
+        }
+    }
+
+    // 登录
+    function login(){
+        var uname=$.trim( $("#uname2").val() );
+        var upwd=$.trim( $("#upwd2").val() );
+        if(!uname){
+            alert("用户名不能为空");
+            return;
+        }else if(!upwd){
+            alert("密码不能为空");
+            return;
+        }else{
+            $.ajax({
+                url:"http://localhost:3000/login",
+                type:"post",
+                data:"uname="+uname+"&upwd="+upwd,
+                dataType:"json"
+            }).then(function(result){
+                if(result.code==1){
+                    alert("登录成功");
+                    ldiv=$(".position-fixed#login").hide();
+                    sessionStorage.setItem("uid",result.uid);
+                }else{
+                    alert("用户或密码错误");
+                }
+            })
+        }
+    }
+</script>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $("#second").click(function (){
+            sendyzm($("#second"));
+        });
+        //用ajax提交到后台的发送短信接口
+        function sendyzm(obj){
+            var phone = $("#userPhone").val();
+            var result = isPhoneNum();
+            if(result) {
+                $.ajax({
+                    url:"http://localhost:3000/yanzhengma",
+                    data:{phone:phone},
+                    dataType:"json",
+                    type:"post",
+                    async : false,
+                    cache : false,
+                    success:function(res){
+                        debugger;
+                        if(res){
+                            alert("验证码发送成功");
+                        }else{
+                            alert("验证码发送失败");
+                        }
+                    },
+                    error:function(){
+                        alert("验证码发送失败");
+                    }
+                })
+                setTime(obj);//开始倒计时
+            }
+        }
+    
+        //60s倒计时实现逻辑
+        var countdown = 60;
+        function setTime(obj) {
+            if (countdown == 0) {
+                obj.prop('disabled', false);
+                obj.text("点击获取验证码");
+                countdown = 60;//60秒过后button上的文字初始化,计时器初始化;
+                return;
+            } else {
+                obj.prop('disabled', true);
+                obj.text("("+countdown+"s)后重新发送") ;
+                countdown--;
+            }
+            setTimeout(function() { setTime(obj) },1000) //每1000毫秒执行一次
+        }
+        //校验手机号是否合法
+        function isPhoneNum(){
+                return true;
+        }
+</script>
+</html>

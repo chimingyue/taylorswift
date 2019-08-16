@@ -1,0 +1,63 @@
+.my_background{
+    background: url("../img/bg/bg-clouds-glitter-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+.h4,h4{
+    color: #e7aeed;
+}
+.my_border{
+    border: 1px solid #F2A9C6;
+}
+.my_border:hover{
+    border: 1px solid #A5C7F0;
+}
+a{
+    color: #A5C7F0;
+}
+a:hover{
+    color: #F2A9C6;
+}
+.my_input{
+    width: 8%;
+    background: transparent;
+    font-weight: normal;
+    padding: 7px;
+}
+.my_color{
+    color: #ef83f3;
+    background: #d7f2fc;
+}
+.my_color:hover{
+    background: transparent;
+}
+.cart{
+    width: 33%;
+    height: 100%;
+    top: 0px;
+    right: -33%;
+    transition: all .8s linear;
+}
+.my_fontcolor{
+    color: #ef83f3;
+}
+.cart .justify-content-between{
+    height:80%;
+    border-top: 1px solid #e8aeed !important;
+    border-bottom: 1px solid #a7e4df !important;
+}
+.account{
+    width: 540px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    margin-left:-270px;
+    margin-top:-400px ;
+}
+.countheader{
+    background-color: #d7f2fc;
+}
+#product_detail img{
+    border-radius: 5px;
+}
